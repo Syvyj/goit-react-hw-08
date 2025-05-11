@@ -3,7 +3,8 @@
   margin-bottom: 24px !important;
   background-color: var(--md-background-paper) !important;
   border-radius: 8px !important;
-  transition: transform var(--md-transition-default), box-shadow var(--md-transition-default) !important;
+  transition: transform var(--md-transition-default),
+    box-shadow var(--md-transition-default) !important;
 }
 
 .filter:hover {
@@ -31,7 +32,8 @@
 
 .clearButton {
   opacity: 0.6;
-  transition: opacity var(--md-transition-default), transform var(--md-transition-default) !important;
+  transition: opacity var(--md-transition-default),
+    transform var(--md-transition-default) !important;
 }
 
 .clearButton:hover {

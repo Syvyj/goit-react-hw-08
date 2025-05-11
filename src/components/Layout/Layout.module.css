@@ -15,7 +15,8 @@
   padding: var(--md-spacing-md) var(--md-spacing-lg) !important;
   margin-bottom: 16px;
   background-color: #fff;
-  transition: box-shadow var(--md-transition-default), transform var(--md-transition-default);
+  transition: box-shadow var(--md-transition-default),
+    transform var(--md-transition-default);
 }
 
 .header:hover {

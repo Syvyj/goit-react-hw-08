@@ -11,7 +11,11 @@
   text-align: center;
   max-width: 800px;
   animation: slideUp 0.5s var(--md-transition-enter);
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 1)
+  );
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -50,7 +54,7 @@
   .content {
     padding: var(--md-spacing-lg);
   }
-  
+
   .container {
     padding: var(--md-spacing-md);
   }
