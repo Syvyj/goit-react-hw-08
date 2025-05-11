@@ -1,0 +1,40 @@
+.filter {
+  max-width: 600px;
+  margin-bottom: 24px !important;
+  background-color: var(--md-background-paper) !important;
+  border-radius: 8px !important;
+  transition: transform var(--md-transition-default), box-shadow var(--md-transition-default) !important;
+}
+
+.filter:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--md-shadow-1);
+}
+
+.filter:focus-within {
+  transform: translateY(-2px);
+  box-shadow: var(--md-shadow-2);
+}
+
+.filter input {
+  padding: 12px 14px !important;
+}
+
+.filter fieldset {
+  border-color: transparent !important;
+  transition: border-color var(--md-transition-default) !important;
+}
+
+.filter:hover fieldset {
+  border-color: rgba(0, 0, 0, 0.23) !important;
+}
+
+.clearButton {
+  opacity: 0.6;
+  transition: opacity var(--md-transition-default), transform var(--md-transition-default) !important;
+}
+
+.clearButton:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}

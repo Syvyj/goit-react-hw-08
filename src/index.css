@@ -1,8 +1,24 @@
 /* Reset styles */
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--md-background-default);
+  color: var(--md-text-primary);
   line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -45,12 +61,56 @@ ul {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --primary-color: #1976d2;
+  --error-color: #d32f2f;
+  --success-color: #2e7d32;
+
+  /* Material Design colors */
+  --md-primary-main: #1976d2;
+  --md-primary-light: #42a5f5;
+  --md-primary-dark: #1565c0;
+  --md-error: #d32f2f;
+  --md-success: #2e7d32;
+  --md-background-default: #f5f5f5;
+  --md-background-paper: #ffffff;
+  --md-text-primary: rgba(0, 0, 0, 0.87);
+  --md-text-secondary: rgba(0, 0, 0, 0.6);
+
+  /* Material Design shadows */
+  --md-shadow-1: 0 2px 4px rgba(0,0,0,0.1);
+  --md-shadow-2: 0 4px 8px rgba(0,0,0,0.1);
+  --md-shadow-3: 0 8px 16px rgba(0,0,0,0.1);
+
+  /* Material Design transitions */
+  --md-transition-default: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --md-transition-enter: 225ms cubic-bezier(0.0, 0, 0.2, 1);
+  --md-transition-exit: 195ms cubic-bezier(0.4, 0, 1, 1);
+
+  /* Material Design spacing */
+  --md-spacing-xs: 4px;
+  --md-spacing-sm: 8px;
+  --md-spacing-md: 16px;
+  --md-spacing-lg: 24px;
+  --md-spacing-xl: 32px;
+
+  /* Material Design breakpoints */
+  --md-breakpoint-xs: 0px;
+  --md-breakpoint-sm: 600px;
+  --md-breakpoint-md: 900px;
+  --md-breakpoint-lg: 1200px;
+  --md-breakpoint-xl: 1536px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+  transition: all 0.2s ease-in-out;
 }
 a:hover {
   color: #535bf2;
@@ -78,7 +138,7 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, all 0.2s ease-in-out;
 }
 button:hover {
   border-color: #646cff;
@@ -98,5 +158,61 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 600px) {
+  button {
+    min-height: 48px;
+  }
+}
+
+/* Material Design text utilities */
+.text-overflow-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Material Design responsive utilities */
+@media (max-width: 600px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+/* Material Design animation utilities */
+.animate-fade-in {
+  animation: fadeIn var(--md-transition-enter);
+}
+
+.animate-fade-out {
+  animation: fadeOut var(--md-transition-exit);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 600px) {
+  button, 
+  input,
+  .MuiButtonBase-root {
+    min-height: 48px;
   }
 }

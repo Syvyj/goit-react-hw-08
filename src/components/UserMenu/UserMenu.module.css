@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px;
+  border-radius: 24px;
+  transition: background-color var(--md-transition-default);
+}
+
+.userInfo:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.username {
+  font-weight: 500 !important;
+  color: var(--md-text-primary) !important;
+  margin-right: 8px !important;
+}
+
+.avatar {
+  transition: transform var(--md-transition-default);
+}
+
+.userInfo:hover .avatar {
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    gap: 8px;
+  }
+  
+  .username {
+    display: none;
+  }
+}

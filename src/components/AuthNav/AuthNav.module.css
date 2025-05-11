@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: transform var(--md-transition-default);
+}
+
+.link:hover {
+  transform: translateY(-1px);
+}
+
+.link button {
+  transition: all var(--md-transition-default) !important;
+}
+
+.link:hover button {
+  box-shadow: var(--md-shadow-1);
+}
+
+.active button {
+  background-color: rgba(25, 118, 210, 0.08);
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    gap: 8px;
+  }
+  
+  .link button {
+    padding: 6px 12px;
+  }
+}
