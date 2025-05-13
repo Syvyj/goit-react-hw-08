@@ -22,6 +22,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useState } from 'react';
 import { deleteContact, editContact } from '../../redux/contacts/operations';
+import { selectFilteredContacts, selectIsLoading, selectError } from '../../redux/contacts/selectors';
 import toast from 'react-hot-toast';
 import styles from './ContactList.module.css';
 import React from 'react';
@@ -32,10 +33,9 @@ const SlideTransition = React.forwardRef((props, ref) => (
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
-  const filter = useSelector(state => state.filters);
-  const isLoading = useSelector(state => state.contacts.isLoading);
-  const error = useSelector(state => state.contacts.error);
+  const contacts = useSelector(selectFilteredContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
   const [deleteDialog, setDeleteDialog] = useState({
     open: false,
     contactId: null,
@@ -44,15 +44,6 @@ const ContactList = () => {
   const [editDialog, setEditDialog] = useState({ open: false, contact: null });
   const [editedName, setEditedName] = useState('');
   const [editedNumber, setEditedNumber] = useState('');
-
-  const getVisibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(
-      contact =>
-        contact.name.toLowerCase().includes(normalizedFilter) ||
-        contact.number.includes(filter)
-    );
-  };
 
   const handleDeleteClick = (id, name) => {
     setDeleteDialog({ open: true, contactId: id, contactName: name });
@@ -103,8 +94,6 @@ const ContactList = () => {
     setEditedNumber('');
   };
 
-  const visibleContacts = getVisibleContacts();
-
   return (
     <>
       {isLoading && (
@@ -115,7 +104,7 @@ const ContactList = () => {
 
       {!isLoading && !error && (
         <List className={styles.list}>
-          {visibleContacts.map(({ id, name, number }, index) => (
+          {contacts.map(({ id, name, number }, index) => (
             <Slide
               direction="right"
               in={true}
